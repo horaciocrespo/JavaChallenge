@@ -10,10 +10,7 @@ import java.io.*;
 
 public class ScoreReader {
 
-    private static final String INPUT_MESSAGE = "Enter file name:";
-
     public void read(BufferedReader bufferedReader, BufferedWriter bufferedWriter) throws IOException {
-        System.out.println(INPUT_MESSAGE);
         String fileName = bufferedReader.readLine();
         readFromFile(fileName, bufferedWriter);
     }

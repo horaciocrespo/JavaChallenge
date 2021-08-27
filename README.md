@@ -29,10 +29,8 @@ Now that you have all the source code it's time to compile it and generate the e
 
 To run it just navigate to the `target` folder using CMD, you'll see a `ten-pin-bowling-score-calculator-1.0-SNAPSHOT.jar` file.
 
-1. Run the following command `java -jar ten-pin-bowling-score-calculator-1.0-SNAPSHOT.jar`
-2. You'll get prompted to provide a file name
-3. You can pass an absolute path like `C:\Users\Horacio\IdeaProjects\JavaChallenge\target\test-classes\positive\scores.txt`.
-4. As soon as you press enter you'll get a nice score-sheet printed to you console.
+1. Run the jar file passing the path to your .txt file, something like `java -jar ten-pin-bowling-score-calculator-1.0-SNAPSHOT.jar C:\Users\Horacio\IdeaProjects\JavaChallenge\src\test\resources\positive\scores.txt`
+2. As soon as you press enter you'll get a nice score-sheet printed to you console.
 
 ## Validations
 
