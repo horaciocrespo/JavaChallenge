@@ -2,6 +2,7 @@ package com.jobsity.tenpinbowlingscore.validation;
 
 public enum ErrorMessagesEnum {
 
+    MISSING_ARGUMENT("You must provide a file name to proceed"),
     FILE_DOES_NOT_EXIST("This file doesn't exist"),
     EMPTY_FILE("The file is empty"),
     CANNOT_READABLE("Cannot read file"),
