@@ -7,20 +7,54 @@ pipeline {
     agent {
         docker {
             image "maven:3.3.3"
+            // use local .m2 repo
             args "-v /tmp/maven:/var/maven/.m2 -e  MAVEN_CONFIG=/var/maven/.m2"
         }
     }
 
     stages {
-        stage("build") {
+
+        // is this stage necessary??
+        // stage("Checkout Codebase") {
+        //     steps {
+        //         // ??
+        //         cleanWS()
+        //         checkout scm: [
+        //             $class: "GitSCM",
+        //             branches: [[name: '*/main']],
+        //             userRemoteConfigs: [[credentialsId: 'github-ssh-key', url: 'git@github.com:horaciocrespo/JavaChallenge.git']]
+        //         ]
+        //     }
+        // }
+
+        stage("Build") {
             steps {
-                sh "mvn -version"
-                sh "mvn clean install"
+                sh "mvn clean compile"
             }
+        }
+
+        stage("Unit Tests") {
+            steps {
+                sh "mvn test"
+            }
+
+            // publish report
+            post {
+                always {
+                    junit "**/target/surefire-reports/TEST-*.xml"
+                }
+            }
+        }
+
+        stage("deploy") {
+
         }
     }
 
     post {
+        //
+        success {
+        }
         always {
             cleanWs()
         }
